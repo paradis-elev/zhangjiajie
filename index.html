@@ -1,187 +1,212 @@
-
-
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<title>Zhangjiajie – Modern Search Page</title>
+  <meta charset="UTF-8">
+  <title>Zhangjiajie – Modern Search Page</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
+  <style>
     body {
-        font-family: "Poppins", sans-serif;
-        margin: 0;
-        background: linear-gradient(135deg, #002f4b, #005f73);
-        color: white;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #002f4b, #005f73);
+      color: white;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    nav a:hover {
+      opacity: 0.7;
     }
 
     header {
-        text-align: center;
-        padding: 60px 20px 20px 20px;
+      text-align: center;
+      padding: 60px 20px 20px 20px;
     }
 
     header h1 {
-        font-size: 3.2rem;
-        margin: 0;
-        font-weight: 600;
-        letter-spacing: 1px;
+      font-size: 3.2rem;
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
     header p {
-        font-size: 1.2rem;
-        opacity: 0.85;
-        margin-top: 10px;
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-top: 10px;
     }
 
     /* ---------------- SEARCH BAR ---------------- */
     #searchBox {
-        width: 90%;
-        max-width: 500px;
-        padding: 14px 20px;
-        border-radius: 12px;
-        border: none;
-        font-size: 1.1rem;
-        margin: 20px auto 40px auto;
-        display: block;
-        color: #003e6b;
+      width: 90%;
+      max-width: 500px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1.1rem;
+      margin: 20px auto 40px auto;
+      display: block;
+      color: #003e6b;
     }
 
     /* ---------------- CARD LAYOUT ---------------- */
     .container {
-        width: 92%;
-        max-width: 1200px;
-        margin: 20px auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 25px;
+      width: 92%;
+      max-width: 1200px;
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
     }
 
     .card {
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        border-radius: 20px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        transition: transform 0.25s, box-shadow 0.25s;
-        cursor: pointer;
-        animation: fadeIn 0.7s ease forwards;
-        opacity: 0;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      animation: fadeIn 0.7s ease forwards;
+      opacity: 0;
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(40px); }
-        to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.35);
     }
 
     .card img {
-        width: 100%;
-        border-radius: 15px;
-        margin-top: 15px;
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 15px;
     }
 
     .card h2 {
-        margin: 0;
-        font-weight: 600;
-        font-size: 1.4rem;
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.4rem;
     }
 
     footer {
-        text-align: center;
-        padding: 40px;
-        opacity: 0.7;
-        font-size: 0.9rem;
+      text-align: center;
+      padding: 40px;
+      opacity: 0.7;
+      font-size: 0.9rem;
     }
-</style>
+  </style>
 </head>
 
 <body>
 
-<header>
+  <!-- NAVBAR -->
+  <nav>
+    <a href="/index.html">Acasă</a>
+    <a href="/weather.html">Vreme</a>
+    <a href="#">Despre</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <header>
     <h1>Zhangjiajie</h1>
     <p>Explorează locurile spectaculoase cu ajutorul filtrului de căutare</p>
-</header>
+  </header>
 
-<!-- SEARCH BAR -->
-<input type="text" id="searchBox" placeholder="Caută un loc... (ex: Avatar, pod, munte)" />
+  <!-- SEARCH BAR -->
+  <input type="text" id="searchBox" placeholder="Caută un loc... (ex: Avatar, pod, munte)" />
 
-<!-- CARD CONTAINER -->
-<div class="container" id="continut"></div>
+  <!-- CARD CONTAINER -->
+  <div class="container" id="continut"></div>
 
-<footer>© 2025 – Zhangjiajie Info Page</footer>
+  <footer>© 2025 – Zhangjiajie Info Page</footer>
 
-<script>
-// ----------------------------------------
-// DATA DIRECT IN JAVASCRIPT
-// ----------------------------------------
-const dateZhangjiajie = [
-    {
-        titlu: "Parcul Național Zhangjiajie",
-        descriere: "Celebrele formațiuni stâncoase verticale care au inspirat lumea din filmul Avatar.",
-        imagine: "https://rare-gallery.com/thumbs/1118822-landscape-forest-waterfall-China-nature-park-cliff-national-park-valley-canyon-wilderness-jungle-Alps-rainforest-Hunan-Formation-ridge-Terrain-mountain-atmospheric-phen.jpg"
-    },
-    {
-        titlu: "Muntele Tianmen",
-        descriere: "Locul faimos pentru Drumul celor 99 de curbe și Poarta Raiului.",
-        imagine: "https://th.bing.com/th/id/R.6f2d094aa86868f469042825fed0f251?rik=WFZ3Jccgst6KZg&riu=http%3a%2f%2fwww.viatgelovers.com%2fwp-content%2fuploads%2f2019%2f01%2fP6178228.jpg&ehk=9KmwiiESwAB%2brJAXFHOtCvNl33nWzl7yulUFBTG6xhQ%3d&risl=&pid=ImgRaw&r=0"
-    },
-    {
-        titlu: "Podul de Sticlă Zhangjiajie",
-        descriere: "Unul dintre cele mai lungi și înalte poduri de sticlă din lume.",
-        imagine: "https://tse2.mm.bing.net/th/id/OIP.8cQ5fK-2dAj4dyq9-yhsEgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"   },
-    {
-        titlu: "Avatar Hallelujah Mountains",
-        descriere: "Stânci uriașe care au inspirat munții plutitori din Avatar.",
-        imagine: "https://www.thepoortraveler.net/wp-content/uploads/2013/11/Hallelujah-Mountain.jpg"
-    },
-    {
-        titlu: "Golden Whip Stream",
-        descriere: "O vale cu râuri cristaline și pereți stâncoși uriași.",
-        imagine: "https://www.zhangjiajietourguide.com/public/upload/photo/golden-whip-stream/img_191_d20210325153823.jpg"
+  <script>
+    // ----------------------------------------
+    // DATA DIRECT IN JAVASCRIPT
+    // ----------------------------------------
+    const dateZhangjiajie = [
+        {
+            titlu: "Parcul Național Zhangjiajie",
+            descriere: "Celebrele formațiuni stâncoase verticale care au inspirat lumea din filmul Avatar.",
+            imagine: "https://rare-gallery.com/thumbs/1118822-landscape-forest-waterfall-China-nature-park-cliff-national-park-valley-canyon-wilderness-jungle-Alps-rainforest-Hunan-Formation-ridge-Terrain-mountain-atmospheric-phen.jpg"
+        },
+        {
+            titlu: "Muntele Tianmen",
+            descriere: "Locul faimos pentru Drumul celor 99 de curbe și Poarta Raiului.",
+            imagine: "https://th.bing.com/th/id/R.6f2d094aa86868f469042825fed0f251?rik=WFZ3Jccgst6KZg&riu=http%3a%2f%2fwww.viatgelovers.com%2fwp-content%2fuploads%2f2019%2f01%2fP6178228.jpg&ehk=9KmwiiESwAB%2brJAXFHOtCvNl33nWzl7yulUFBTG6xhQ%3d&risl=&pid=ImgRaw&r=0"
+        },
+        {
+            titlu: "Podul de Sticlă Zhangjiajie",
+            descriere: "Unul dintre cele mai lungi și înalte poduri de sticlă din lume.",
+            imagine: "https://tse2.mm.bing.net/th/id/OIP.8cQ5fK-2dAj4dyq9-yhsEgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
+        },
+        {
+            titlu: "Avatar Hallelujah Mountains",
+            descriere: "Stânci uriașe care au inspirat munții plutitori din Avatar.",
+            imagine: "https://www.thepoortraveler.net/wp-content/uploads/2013/11/Hallelujah-Mountain.jpg"
+        },
+        {
+            titlu: "Golden Whip Stream",
+            descriere: "O vale cu râuri cristaline și pereți stâncoși uriași.",
+            imagine: "https://www.zhangjiajietourguide.com/public/upload/photo/golden-whip-stream/img_191_d20210325153823.jpg"
+        }
+    ];
+
+    // ----------------------------------------
+    // RENDER FUNCTION
+    // ----------------------------------------
+    function afiseazaDate(lista) {
+        const container = document.getElementById("continut");
+        container.innerHTML = "";
+
+        lista.forEach((item, index) => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+            card.style.animationDelay = (index * 0.1) + "s";
+
+            card.innerHTML = `
+                <h2>${item.titlu}</h2>
+                <p>${item.descriere}</p>
+                <img src="${item.imagine}" alt="${item.titlu}">
+            `;
+
+            container.appendChild(card);
+        });
     }
-];
 
-// ----------------------------------------
-// RENDER FUNCTION
-// ----------------------------------------
-function afiseazaDate(lista) {
-    const container = document.getElementById("continut");
-    container.innerHTML = "";
+    afiseazaDate(dateZhangjiajie);
 
-    lista.forEach((item, index) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.style.animationDelay = (index * 0.1) + "s";
-
-        card.innerHTML = `
-            <h2>${item.titlu}</h2>
-            <p>${item.descriere}</p>
-            <img src="${item.imagine}" alt="${item.titlu}">
-        `;
-
-        container.appendChild(card);
+    // ----------------------------------------
+    // SEARCH FILTER
+    // ----------------------------------------
+    document.getElementById("searchBox").addEventListener("input", function() {
+        const q = this.value.toLowerCase();
+        const filtrate = dateZhangjiajie.filter(item =>
+            item.titlu.toLowerCase().includes(q) ||
+            item.descriere.toLowerCase().includes(q)
+        );
+        afiseazaDate(filtrate);
     });
-}
-
-afiseazaDate(dateZhangjiajie);
-
-// ----------------------------------------
-// SEARCH FILTER
-// ----------------------------------------
-document.getElementById("searchBox").addEventListener("input", function() {
-    const q = this.value.toLowerCase();
-    const filtrate = dateZhangjiajie.filter(item =>
-        item.titlu.toLowerCase().includes(q) ||
-        item.descriere.toLowerCase().includes(q)
-    );
-    afiseazaDate(filtrate);
-});
-</script>
+  </script>
 
 </body>
 </html>
